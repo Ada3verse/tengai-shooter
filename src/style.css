@@ -1,0 +1,78 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a0e;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#app canvas {
+  touch-action: none;
+}
+
+#rotate-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #0a0a0e;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-family: sans-serif;
+  text-align: center;
+  gap: 8px;
+}
+
+.rotate-icon {
+  font-size: 48px;
+  animation: rotate-hint 1.6s ease-in-out infinite;
+  margin-bottom: 8px;
+}
+
+.rotate-sub {
+  color: #9aa0a6;
+  font-size: 13px;
+}
+
+@keyframes rotate-hint {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+}
+
+.name-entry-input {
+  position: absolute;
+  font-size: 20px;
+  padding: 8px 12px;
+  border: 2px solid #ff3b3b;
+  border-radius: 4px;
+  background: #1a1a1f;
+  color: #fff;
+  text-align: center;
+  outline: none;
+  font-family: ui-monospace, Consolas, monospace;
+  letter-spacing: 2px;
+}
