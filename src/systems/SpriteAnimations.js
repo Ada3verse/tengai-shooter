@@ -1,25 +1,26 @@
 import { CHARACTER_SPRITES, BOSS_SPRITES, ENEMY_SPRITE_FOLDERS, ENEMY_SPRITE_DEFAULT, DIRECTION_COL } from '../data/spriteConfig.js';
+import { assetUrl } from '../core/assetPath.js';
 
 export function preloadCharacterSprites(scene) {
   for (const id of Object.keys(CHARACTER_SPRITES)) {
     const fs = CHARACTER_SPRITES[id].frameSize;
-    scene.load.spritesheet(`char_${id}_idle`, `/assets/sprites/characters/${id}/Idle.png`, { frameWidth: fs, frameHeight: fs });
-    scene.load.spritesheet(`char_${id}_walk`, `/assets/sprites/characters/${id}/Walk.png`, { frameWidth: fs, frameHeight: fs });
+    scene.load.spritesheet(`char_${id}_idle`, assetUrl(`/assets/sprites/characters/${id}/Idle.png`), { frameWidth: fs, frameHeight: fs });
+    scene.load.spritesheet(`char_${id}_walk`, assetUrl(`/assets/sprites/characters/${id}/Walk.png`), { frameWidth: fs, frameHeight: fs });
   }
 }
 
 export function preloadEnemySprites(scene) {
   const fs = ENEMY_SPRITE_DEFAULT.frameSize;
   for (const type of Object.keys(ENEMY_SPRITE_FOLDERS)) {
-    scene.load.spritesheet(`enemy_${type}_idle`, `/assets/sprites/enemies/${type}/Idle.png`, { frameWidth: fs, frameHeight: fs });
-    scene.load.spritesheet(`enemy_${type}_walk`, `/assets/sprites/enemies/${type}/Walk.png`, { frameWidth: fs, frameHeight: fs });
+    scene.load.spritesheet(`enemy_${type}_idle`, assetUrl(`/assets/sprites/enemies/${type}/Idle.png`), { frameWidth: fs, frameHeight: fs });
+    scene.load.spritesheet(`enemy_${type}_walk`, assetUrl(`/assets/sprites/enemies/${type}/Walk.png`), { frameWidth: fs, frameHeight: fs });
   }
 }
 
 export function preloadBossSprites(scene) {
   for (const id of Object.keys(BOSS_SPRITES)) {
     const cfg = BOSS_SPRITES[id];
-    scene.load.spritesheet(`boss_${id}_idle`, `/assets/sprites/bosses/${id}/Idle.png`, {
+    scene.load.spritesheet(`boss_${id}_idle`, assetUrl(`/assets/sprites/bosses/${id}/Idle.png`), {
       frameWidth: cfg.frameWidth,
       frameHeight: cfg.frameHeight,
     });

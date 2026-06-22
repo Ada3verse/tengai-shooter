@@ -1,3 +1,5 @@
+import { assetUrl } from './assetPath.js';
+
 // key -> 파일 경로 매핑. 오디오는 Ninja Adventure Asset Pack(pixel-boy & AAA, CC0)에서 가져왔다.
 // 출처: https://pixel-boy.itch.io/ninja-adventure-asset-pack - 저작자 표시 불필요, 상업적 이용 가능.
 export const AUDIO_ENABLED = true;
@@ -65,7 +67,7 @@ export function preloadAllAudio(scene) {
   if (!AUDIO_ENABLED) return;
   const allEntries = { ...BGM_MANIFEST, ...SFX_MANIFEST };
   for (const [key, path] of Object.entries(allEntries)) {
-    scene.load.audio(key, path);
+    scene.load.audio(key, assetUrl(path));
   }
   scene.load.on('loaderror', (file) => {
     if (allEntries[file.key]) {
